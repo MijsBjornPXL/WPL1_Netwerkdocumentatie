@@ -1,7 +1,7 @@
 Switch_2960_R_1#sh run
 Building configuration...
 
-Current configuration : 2013 bytes
+Current configuration : 2084 bytes
 !
 version 15.0
 no service timestamps log datetime msec
@@ -9,6 +9,9 @@ no service timestamps debug datetime msec
 service password-encryption
 !
 hostname Switch_2960_R_1
+!
+ipv6 unicast-routing
+!
 !
 enable secret 5 $1$mERr$vkYaXnKGfLgWNDfn7gSo9/
 !
@@ -77,6 +80,8 @@ interface GigabitEthernet0/2
 !
 interface Vlan1
  ip address 192.168.1.245 255.255.255.0
+ ipv6 address 2001:DB8::1/64
+ ipv6 enable
 !
 ip default-gateway 192.168.1.1
 !
@@ -95,6 +100,8 @@ banner motd ^C
 *                    "WPL1"                      *
 **************************************************
 "^C
+!
+!
 !
 !
 !
